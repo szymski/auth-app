@@ -7,6 +7,9 @@ export interface Config {
   db: {
     connectionString: string;
   },
+  jwt: {
+    secret: string;
+  }
 }
 
 let cfg: Config;

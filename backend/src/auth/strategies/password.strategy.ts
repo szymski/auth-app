@@ -14,7 +14,7 @@ export class PasswordStrategy extends PassportStrategy(Strategy, "password") {
   /**
    * Authenticates user using username and password.
    */
-  async validate(username: string, password: string) {
+  async validate(username: string, password: string): Promise<User> {
     const user = await this.userRepository.findOne({
       username: username,
     });

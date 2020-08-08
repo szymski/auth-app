@@ -6,5 +6,8 @@ export default {
   },
   db: {
     connectionString: "mongodb://root:root@localhost:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false",
+  },
+  jwt: {
+    secret: "DEV"
   }
 } as Config;
