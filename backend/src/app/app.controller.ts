@@ -3,9 +3,11 @@ import { InjectRepository } from 'nestjs-mikro-orm';
 import { User } from '../user/entities/user.entity';
 import { EntityRepository } from 'mikro-orm';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller()
 @UseGuards(AuthGuard())
+@ApiBearerAuth()
 export class AppController {
 
   constructor(
