@@ -11,6 +11,9 @@ export class AppController {
 
   @Get()
   async getAllUsers() {
-    return await this.userRepository.findAll();
+    return await this.userRepository.findAll({
+      fields: ["username"]
+    });
+    // return null;
   }
 }

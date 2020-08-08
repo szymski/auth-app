@@ -4,6 +4,8 @@ import { UserModule } from '../user/user.module';
 import { User } from '../user/entities/user.entity';
 import { AppController } from './app.controller';
 import mikroOrmConfig from '../mikro-orm.config';
+import { AuthModule } from '../auth/auth.module';
+import { AuthController } from '../auth/auth.controller';
 
 @Module({
   imports: [
@@ -13,7 +15,8 @@ import mikroOrmConfig from '../mikro-orm.config';
       baseDir: __dirname,
     }),
     MikroOrmModule.forFeature({ entities: [User] }),
-    UserModule
+    UserModule,
+    AuthModule
   ],
   controllers: [AppController]
 })
