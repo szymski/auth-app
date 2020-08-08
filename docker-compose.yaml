@@ -5,6 +5,16 @@ services:
     build: backend/
     ports:
       - "3000:3000"
+  frontend:
+    container_name: frontend
+    build: frontend/
+    ports:
+      - "80:80"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - './frontend:/app'
+    stdin_open: true
   db:
     image: mongo:latest
     environment:
