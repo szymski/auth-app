@@ -6,6 +6,10 @@ export const API = axios.create({
     baseURL: baseUrl,
 });
 
+export function setApiAuthToken(token: string) {
+    API.defaults.headers['Authorization'] = `Bearer ${token}`;
+}
+
 export async function authenticate(username: string, password: string): Promise<{ token: string; }> {
     const response = await API.post("/auth/login/password", {
         username,

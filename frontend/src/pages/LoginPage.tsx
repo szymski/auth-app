@@ -1,9 +1,12 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {Page} from "../components/Page";
 import "./LoginPage.css"
 import {authenticate} from "../api";
+import {AppContext} from "../context";
 
 export const LoginPage = () => {
+    const context = useContext(AppContext);
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loggingIn, setLoggingIn] = useState(false);
@@ -13,7 +16,8 @@ export const LoginPage = () => {
         setLoggingIn(true);
 
         try {
-            await authenticate(username, password);
+            const data = await authenticate(username, password);
+            context.setAuthToken(data.token);
             setError("");
         }
         catch(e) {
