@@ -17,3 +17,8 @@ export async function authenticate(username: string, password: string): Promise<
     });
     return response.data;
 }
+
+export async function getMyUser(): Promise<{ username: string; }> {
+    const response = await API.get("/auth/my-user")
+    return response.data;
+}
