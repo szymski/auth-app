@@ -5,6 +5,8 @@ services:
     build: backend/
     ports:
       - "3000:3000"
+    depends_on:
+      - db
   frontend:
     container_name: frontend
     build: frontend/
@@ -15,6 +17,8 @@ services:
     volumes:
       - './frontend:/app'
     stdin_open: true
+    depends_on:
+      - backend
   db:
     image: mongo:latest
     environment:

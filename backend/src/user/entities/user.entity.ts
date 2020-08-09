@@ -1,4 +1,4 @@
-import { Entity, PrimaryKey, Property, IdEntity } from 'mikro-orm';
+import { Entity, PrimaryKey, Property, IdEntity, Unique } from 'mikro-orm';
 import { ObjectId } from 'mongodb';
 
 export interface UserAuthMethod {
@@ -12,6 +12,7 @@ export class User {
   _id: ObjectId;
 
   @Property()
+  @Unique()
   username: string;
 
   @Property()

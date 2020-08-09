@@ -11,6 +11,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 import { JwtAuthGuard } from './guards/jwt.guard';
 import { SessionService } from './session/session.service';
+import { PasswordHasher } from './password-hasher.service';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { SessionService } from './session/session.service';
     JwtStrategy,
     JwtAuthGuard,
     SessionService,
+    PasswordHasher,
   ],
   controllers: [AuthController],
   exports: [
