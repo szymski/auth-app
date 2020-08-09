@@ -1,0 +1,7 @@
+.dashboard-page {
+}
+
+.dashboard-page .table-wrapper {
+    margin: auto;
+    max-width: 900px;
+}

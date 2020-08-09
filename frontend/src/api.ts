@@ -2,6 +2,16 @@ import axios from "axios";
 
 const baseUrl = "http://localhost:3000";
 
+export type ExchangeRates = { [currency: string]: CurrencyExchangeRate };
+
+export interface CurrencyExchangeRate {
+    ['15m']: number;
+    last: number;
+    buy: number;
+    sell: number;
+    symbol: string;
+}
+
 export const API = axios.create({
     baseURL: baseUrl,
 });
@@ -20,5 +30,10 @@ export async function authenticate(username: string, password: string): Promise<
 
 export async function getMyUser(): Promise<{ username: string; }> {
     const response = await API.get("/auth/my-user")
+    return response.data;
+}
+
+export async function getData(): Promise<ExchangeRates> {
+    const response = await API.get("/dashboard")
     return response.data;
 }
