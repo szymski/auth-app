@@ -1,0 +1,15 @@
+import axios from "axios";
+
+const baseUrl = "http://localhost:3000";
+
+export const API = axios.create({
+    baseURL: baseUrl,
+});
+
+export async function authenticate(username: string, password: string): Promise<{ token: string; }> {
+    const response = await API.post("/auth/login/password", {
+        username,
+        password,
+    });
+    return response.data;
+}

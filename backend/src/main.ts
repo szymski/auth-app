@@ -6,9 +6,11 @@ import helmet from 'helmet';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
-  app.use(helmet());
+  if (process.env.ENV == 'PROD')
+    app.use(helmet());
+
   app.useGlobalPipes(new ValidationPipe());
 
   const options = new DocumentBuilder()
@@ -22,4 +24,5 @@ async function bootstrap() {
 
   await app.listen(config.app.port);
 }
+
 bootstrap();
