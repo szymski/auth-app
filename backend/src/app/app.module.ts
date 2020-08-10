@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import mikroOrmConfig from '../mikro-orm.config';
 import { AuthModule } from '../auth/auth.module';
 import { AuthController } from '../auth/auth.controller';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { AuthController } from '../auth/auth.controller';
     }),
     MikroOrmModule.forFeature({ entities: [User] }),
     UserModule,
-    AuthModule
+    AuthModule,
+    DashboardModule,
   ],
   controllers: [AppController]
 })

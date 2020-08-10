@@ -13,9 +13,10 @@ services:
     ports:
       - "80:80"
     environment:
+      - PORT=80
       - CHOKIDAR_USEPOLLING=true
-    volumes:
-      - './frontend:/app'
+#    volumes:
+#      - './frontend:/app'
     stdin_open: true
     depends_on:
       - backend

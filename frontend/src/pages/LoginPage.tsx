@@ -10,7 +10,7 @@ export const LoginPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loggingIn, setLoggingIn] = useState(false);
-    const [error, setError] = useState();
+    const [error, setError] = useState("");
 
     const handleSubmit = async () => {
         setLoggingIn(true);

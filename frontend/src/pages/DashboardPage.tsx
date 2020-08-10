@@ -19,7 +19,7 @@ export const DashboardPage = () => {
                 console.log("Token:" + context.authToken);
                 context.setAuthToken("");
             });
-    }, []);
+    });
 
     useEffect(() => {
         getData()
