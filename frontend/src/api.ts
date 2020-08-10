@@ -2,6 +2,11 @@ import axios from "axios";
 
 const baseUrl = "http://localhost:3000";
 
+export interface SavedExchangeRates {
+    savedAt: Date;
+    data: ExchangeRates
+}
+
 export type ExchangeRates = { [currency: string]: CurrencyExchangeRate };
 
 export interface CurrencyExchangeRate {
@@ -33,7 +38,12 @@ export async function getMyUser(): Promise<{ username: string; }> {
     return response.data;
 }
 
-export async function getData(): Promise<ExchangeRates> {
+export async function getData(): Promise<SavedExchangeRates> {
     const response = await API.get("/dashboard")
+    return response.data;
+}
+
+export async function refreshData(): Promise<SavedExchangeRates> {
+    const response = await API.post("/dashboard/update")
     return response.data;
 }

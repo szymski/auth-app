@@ -1,5 +1,6 @@
 import { User } from './user/entities/user.entity';
 import { config } from './config';
+import { SavedExchangeRates } from './dashboard/entities/exchange-rates.entity';
 
 export default {
   dbName: 'auth-app',
@@ -8,5 +9,5 @@ export default {
   // // entitiesDirs: ['./dist/src/**/entities'],
   // entitiesDirs: [],
   // entitiesDirsTs: ['./**/entities'],
-  entities: [User]
+  entities: [User, SavedExchangeRates]
 };

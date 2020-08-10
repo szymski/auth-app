@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ExchangeRates } from './interfaces/exchange-rates';
 import { DataProvider } from './data-provider.service';
+import { SavedExchangeRates } from './entities/exchange-rates.entity';
 
 @Injectable()
 export class DashboardService {
@@ -8,8 +9,17 @@ export class DashboardService {
   constructor(private dataProvider: DataProvider) {
   }
 
-  async getData(): Promise<ExchangeRates> {
+  /**
+   * Gets stored data or fetches new.
+   */
+  public async getData(): Promise<SavedExchangeRates> {
     return await this.dataProvider.getData();
   }
 
+  /**
+   * Fetches and saves new data explicitly.
+   */
+  public async getNewDataAndSave(): Promise<SavedExchangeRates> {
+    return await this.dataProvider.getNewDataAndSave();
+  }
 }
