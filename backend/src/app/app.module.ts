@@ -2,10 +2,8 @@ import { Module } from '@nestjs/common';
 import { MikroOrmModule } from 'nestjs-mikro-orm';
 import { UserModule } from '../user/user.module';
 import { User } from '../user/entities/user.entity';
-import { AppController } from './app.controller';
 import mikroOrmConfig from '../mikro-orm.config';
 import { AuthModule } from '../auth/auth.module';
-import { AuthController } from '../auth/auth.controller';
 import { DashboardModule } from '../dashboard/dashboard.module';
 
 @Module({
@@ -20,6 +18,6 @@ import { DashboardModule } from '../dashboard/dashboard.module';
     AuthModule,
     DashboardModule,
   ],
-  controllers: [AppController]
+  controllers: []
 })
 export class AppModule {}
