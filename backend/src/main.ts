@@ -15,7 +15,7 @@ async function bootstrap() {
 
   const options = new DocumentBuilder()
     .setTitle('auth-app')
-    .setDescription('The cats API description')
+    .setDescription('Authorization app with public API data fetching')
     .setVersion('1.0')
     .addTag('auth')
     .build();
