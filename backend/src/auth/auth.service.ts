@@ -29,7 +29,7 @@ export class AuthService {
     const method = user.authMethods
       .find(x => x.method == "password");
 
-    if(!await this.passwordHasher.verify(method.data, password))
+    if(!method || !await this.passwordHasher.verify(method.data, password))
       throw new UnauthorizedException();
 
     return user;
