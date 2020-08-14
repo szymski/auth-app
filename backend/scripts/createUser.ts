@@ -23,7 +23,7 @@ async function run() {
   user.authMethods = [];
   user.authMethods.push({
     method: 'password',
-    data: hasher.hash('Password1@3'),
+    data: await hasher.hash('Password1@3'),
   });
   await orm.em.persistAndFlush(user);
   await orm.close();
