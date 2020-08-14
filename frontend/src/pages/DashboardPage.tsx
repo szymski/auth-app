@@ -38,7 +38,7 @@ export const DashboardPage = () => {
                 {exchangeRates && (
                     <>
                         <p>
-                            Fetched at: {exchangeRates.savedAt}
+                            Fetched at: {new Date(exchangeRates.savedAt).toLocaleTimeString()}
                             &nbsp;
                             <a href="#" onClick={() => refreshAndDisplayData()}>Refresh</a>
                         </p>
