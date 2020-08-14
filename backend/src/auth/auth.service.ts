@@ -1,4 +1,4 @@
-import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { User } from '../user/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
 import { JwtPayload } from './interfaces/jwt-payload';
@@ -19,7 +19,7 @@ export class AuthService {
    * Authenticates user using username and password.
    * @throws {UnauthorizedException} Username or password invalid.
    */
-  async authenticate(username: string, password: string) {
+  async authenticate(username: string, password: string): Promise<User> {
     const user = await this.userRepository.findOne({
       username: username,
     });
@@ -35,7 +35,7 @@ export class AuthService {
     return user;
   }
 
-  generateJwtToken(user: User) {
+  generateJwtBearerToken(user: User): string {
     return this.jwtService.sign({
       sub: user._id.toHexString(),
     } as JwtPayload);

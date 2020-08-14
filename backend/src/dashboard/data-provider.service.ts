@@ -1,12 +1,8 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { ExchangeRates } from './interfaces/exchange-rates';
-import axios from 'axios';
-import { exchangeRateApiUrl } from './consts/api-urls';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from 'nestjs-mikro-orm';
-import { EntityManager, EntityRepository } from 'mikro-orm';
 import { SavedExchangeRates } from './entities/exchange-rates.entity';
-import { raw } from 'express';
 import { ApiDataFetcher } from './api-data-fetcher';
+import { EntityRepository } from 'mikro-orm';
 
 @Injectable()
 export class DataProvider {

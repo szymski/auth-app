@@ -1,11 +1,12 @@
-import { Controller, Get, Query, UseGuards, Request, Post, Inject, Body } from '@nestjs/common';
+import { Controller, Get, UseGuards, Request, Post, Body } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
-import { ApiCreatedResponse, ApiOkResponse, ApiResponse, ApiUnauthorizedResponse } from '@nestjs/swagger';
+import { ApiCreatedResponse, ApiOkResponse, ApiUnauthorizedResponse } from '@nestjs/swagger';
 import { LoginDto } from './dtos/login.dto';
 import { TokenDto } from './dtos/token.dto';
 import { UserDto } from '../user/dtos/user.dto';
 import { SessionService } from './session/session.service';
+import { User } from '../user/entities/user.entity';
 
 @Controller('auth')
 export class AuthController {
@@ -21,15 +22,16 @@ export class AuthController {
     type: TokenDto,
   })
   @ApiUnauthorizedResponse({ description: 'Authentication failed.' })
-  loginPassword(@Request() req, @Body() dto: LoginDto): TokenDto {
+  loginPassword(@Request() req: { user: User }, @Body() dto: LoginDto): TokenDto {
     return {
-      token: this.authService.generateJwtToken(req.user)
+      token: this.authService.generateJwtBearerToken(req.user)
     };
   }
 
   @Get('my-user')
   @UseGuards(AuthGuard())
   @ApiOkResponse({
+    description: 'Returns currently logged in user based on bearer token.',
     type: UserDto
   })
   async getMyUser(): Promise<UserDto> {

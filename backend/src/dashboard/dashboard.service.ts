@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { ExchangeRates } from './interfaces/exchange-rates';
 import { DataProvider } from './data-provider.service';
 import { SavedExchangeRates } from './entities/exchange-rates.entity';
 

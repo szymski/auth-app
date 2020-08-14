@@ -5,7 +5,7 @@ import { PasswordStrategy } from './strategies/password.strategy';
 import { MikroOrmModule } from 'nestjs-mikro-orm';
 import { User } from '../user/entities/user.entity';
 import { PasswordAuthGuard } from './guards/password.guard';
-import { JwtModule, JwtService } from '@nestjs/jwt';
+import { JwtModule } from '@nestjs/jwt';
 import { config } from '../config';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';

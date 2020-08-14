@@ -1,9 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { PasswordHasher } from './password-hasher.service';
-import { JwtModule, JwtService } from '@nestjs/jwt';
+import { JwtModule } from '@nestjs/jwt';
 import { config } from '../config';
-import { SavedExchangeRates } from '../dashboard/entities/exchange-rates.entity';
 import { User } from '../user/entities/user.entity';
 import { ObjectId } from 'mongodb';
 import { UnauthorizedException } from '@nestjs/common';
