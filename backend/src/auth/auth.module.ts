@@ -35,10 +35,7 @@ import { PasswordHasher } from './password-hasher.service';
   ],
   controllers: [AuthController],
   exports: [
-    PassportModule.register({
-      defaultStrategy: 'jwt',
-    }),
-    SessionService
+    SessionService,
   ]
 })
 export class AuthModule {}

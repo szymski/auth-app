@@ -3,8 +3,6 @@ import { MikroOrmModule } from 'nestjs-mikro-orm';
 import { User } from './entities/user.entity';
 
 @Module({
-  imports: [
-    // MikroOrmModule.forFeature({ entities: [] }),
-  ]
+  imports: []
 })
 export class UserModule {}
