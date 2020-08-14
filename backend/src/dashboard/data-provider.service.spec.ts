@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { DataProvider } from './data-provider.service';
 import { ApiDataFetcher } from './api-data-fetcher';
 import { ExchangeRates } from './interfaces/exchange-rates';
-import { SavedExchangeRates } from './entities/exchange-rates.entity';
+import { SavedExchangeRates } from './entities/saved-exchange-rates.entity';
 
 describe('DataProvider', () => {
   let service: DataProvider;

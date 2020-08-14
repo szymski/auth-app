@@ -3,7 +3,7 @@ import { DashboardController } from './dashboard.controller';
 import { DashboardService } from './dashboard.service';
 import { DataProvider } from './data-provider.service';
 import { MikroOrmModule } from 'nestjs-mikro-orm';
-import { SavedExchangeRates } from './entities/exchange-rates.entity';
+import { SavedExchangeRates } from './entities/saved-exchange-rates.entity';
 import { ApiDataFetcher } from './api-data-fetcher';
 import { PassportModule } from '@nestjs/passport';
 

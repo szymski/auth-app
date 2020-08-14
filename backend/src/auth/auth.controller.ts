@@ -1,7 +1,7 @@
 import { Controller, Get, UseGuards, Request, Post, Body } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
-import { ApiCreatedResponse, ApiOkResponse, ApiUnauthorizedResponse } from '@nestjs/swagger';
+import { ApiCreatedResponse, ApiOkResponse, ApiTags, ApiUnauthorizedResponse } from '@nestjs/swagger';
 import { LoginDto } from './dtos/login.dto';
 import { TokenDto } from './dtos/token.dto';
 import { UserDto } from '../user/dtos/user.dto';
@@ -9,6 +9,7 @@ import { SessionService } from './session/session.service';
 import { User } from '../user/entities/user.entity';
 
 @Controller('auth')
+@ApiTags('auth')
 export class AuthController {
   constructor(
     private authService: AuthService,

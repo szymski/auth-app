@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from 'nestjs-mikro-orm';
-import { SavedExchangeRates } from './entities/exchange-rates.entity';
+import { SavedExchangeRates } from './entities/saved-exchange-rates.entity';
 import { ApiDataFetcher } from './api-data-fetcher';
 import { EntityRepository } from 'mikro-orm';
 
