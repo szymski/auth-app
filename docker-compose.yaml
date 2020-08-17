@@ -7,6 +7,10 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    links:
+      - "db:db"
+    environment:
+      - CONNECTION_STRING="mongodb://root:root@db:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false"
   frontend:
     container_name: frontend
     build: frontend/
